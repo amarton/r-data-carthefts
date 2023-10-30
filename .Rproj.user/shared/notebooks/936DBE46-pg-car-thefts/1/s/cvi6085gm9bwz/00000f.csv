@@ -1,0 +1,3 @@
+"0","pgCarData %>%"
+"0","  group_by(month = lubridate::floor_date(Date, 'month')) %>%"
+"0","    summarise(freq=n())"

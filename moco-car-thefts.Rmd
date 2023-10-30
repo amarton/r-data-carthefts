@@ -1,0 +1,100 @@
+---
+title: "moco-carthefts"
+output: html_document
+date: "2023-10-27"
+---
+
+
+```{r}
+library(tidyverse)
+
+```
+
+
+Read the data
+```{r}
+MoCoData <- read.csv("moco-crime_20231026.csv")
+```
+
+
+Look at the data
+```{r}
+head(MoCoData, n=10)
+```
+
+Split date into it's own column called StartDate
+```{r}
+
+
+MoCoData <- MoCoData %>%
+  mutate(
+    Start_Date_Time = parse_date_time(
+      Start_Date_Time, "m/d/Y I:M:S p"
+    )
+  ) %>% 
+  mutate(
+    StartDate = as.Date(Start_Date_Time),
+      )
+MoCoData
+
+```
+
+
+
+Filter records for 2020 and after where the crime is Motor Vehicle Theft
+```{r}
+
+
+MoCoCarData <- MoCoData %>% filter(StartDate > '2019-12-31' & Crime.Name2 =="Motor Vehicle Theft") 
+
+MoCoCarData
+
+```
+
+
+
+Summarize by year based on Start Date Time 
+```{r}
+
+MoCoCarData %>%
+  group_by(year(Start_Date_Time))%>%
+    summarise(freq=n())
+
+```
+
+
+
+Summarize by month based on the date field
+```{r}
+MoCoCarData %>%
+  group_by(month = lubridate::floor_date(StartDate, 'month')) %>%
+    summarise(freq=n())
+```
+
+
+
+Make a 2023 dataframe
+```{r}
+MoCoCarData2023 <- MoCoCarData %>% filter(StartDate > '2022-12-31') 
+
+MoCoCarData2023
+```
+
+Summarize by place
+```{r}
+MoCoCarData2023 %>%
+  group_by(Place)%>%
+    summarise(freq=n()) %>% 
+      arrange(desc(freq))
+```
+
+Summarize by city
+
+```{r}
+MoCoCarData2023 %>%
+  group_by(City)%>%
+    summarise(freq=n()) %>% 
+      arrange(desc(freq))
+```
+
+
