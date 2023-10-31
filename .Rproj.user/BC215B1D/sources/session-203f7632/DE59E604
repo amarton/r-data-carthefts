@@ -3,7 +3,7 @@
     "path": "~/Documents/GitHub/r-data-carthefts/pg-car-thefts.Rmd",
     "project_path": "pg-car-thefts.Rmd",
     "type": "r_markdown",
-    "hash": "1291731372",
+    "hash": "0",
     "contents": "",
     "dirty": false,
     "created": 1698667235937.0,
@@ -13,15 +13,15 @@
         "tempName": "Untitled1",
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "8,11",
-        "scrollLine": "0"
+        "cursorPosition": "100,0",
+        "scrollLine": "95"
     },
     "folds": "",
-    "lastKnownWriteTime": 1698695721,
+    "lastKnownWriteTime": 1698759433,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1698696241571,
+    "last_content_update": 1698759433241,
     "read_only": false,
     "read_only_alternatives": []
 }

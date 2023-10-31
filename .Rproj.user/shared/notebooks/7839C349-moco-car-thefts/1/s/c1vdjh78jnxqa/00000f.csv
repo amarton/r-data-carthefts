@@ -1,0 +1,3 @@
+"0","MoCoCarData %>%"
+"0","  group_by(month = lubridate::floor_date(StartDate, 'month')) %>%"
+"0","    summarise(freq=n())"

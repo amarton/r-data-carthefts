@@ -86,17 +86,17 @@ nrow(PGDataAll)
 ```
 
 
-Filter for dates 2020 - 2023 and Stolen Cars only
+Filter for dates 2019 - 2023 and Stolen Cars only
 ```{r}
 
-pgCarData <- PGDataAll %>% filter(Date > '2019-12-31') 
+pgCarData <- PGDataAll %>% filter(Date > '2018-12-31') 
 
 pgCarData <- pgCarData %>% filter(Clearance_code_inc_type == "AUTO, STOLEN" |  Clearance_code_inc_type == "AUTO, STOLEN & RECOVERED") 
 
 ```
 
 
-How many rows in this dataset? (How many total stolen cars between 2020 - 2023)
+How many rows in this dataset? (How many total stolen cars between 2019 - 2023)
 ```{r}
 nrow(pgCarData)
 

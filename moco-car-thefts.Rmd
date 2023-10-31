@@ -41,23 +41,31 @@ MoCoData
 
 
 
-Filter records for 2020 and after where the crime is Motor Vehicle Theft
+Filter records for 2019 and after where the crime is Motor Vehicle Theft
 ```{r}
 
 
-MoCoCarData <- MoCoData %>% filter(StartDate > '2019-12-31' & Crime.Name2 =="Motor Vehicle Theft") 
+MoCoCarData <- MoCoData %>% filter(StartDate > '2018-12-31' & Crime.Name2 =="Motor Vehicle Theft") 
 
 MoCoCarData
 
+
+
 ```
 
+Total number of stolen autos 2019 - 2023
+```{r}
+
+nrow(MoCoCarData)
+
+```
 
 
 Summarize by year based on Start Date Time 
 ```{r}
 
 MoCoCarData %>%
-  group_by(year(Start_Date_Time))%>%
+  group_by(year(Start_Date_Time))%>%ß
     summarise(freq=n())
 
 ```
