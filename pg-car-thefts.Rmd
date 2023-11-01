@@ -65,6 +65,22 @@ PGDataOld <- PGDataOld %>%
 
 ```
 
+```{r}
+
+nrow(PGDataOld)
+
+
+```
+
+
+Remove all July 2023 numbers from old data
+```{r}
+
+PGDataOld <- PGDataOld %>% filter(Date <= '2023-07-01') 
+
+nrow(PGDataOld)
+```
+
 
 
 Merge the 2 CSVs
