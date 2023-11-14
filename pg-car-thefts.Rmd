@@ -13,7 +13,7 @@ library(tm)
 Read the 2 CSVs
 ```{r}
 PGDataOld <- read.csv("PG-Crime_Incidents_February_2017_to_5th_July_2023_20231025.csv")
-PGDataNew <- read.csv("PG-Crime_Incidents_July_2023_to_Present_20231029.csv")
+PGDataNew <- read.csv("PG-Crime_Incidents_July_2023_to_Present_20231107.csv")
 
 
 ```
@@ -130,10 +130,32 @@ pgCarData %>%
 
 Summarize by month based on the date field
 ```{r}
-pgCarData %>%
+pgCarDataMonth <- pgCarData %>%
+  group_by(month = lubridate::floor_date(Date, 'month')) %>%
+    summarise(freq=n()) 
+
+pgCarDataMonth
+
+write.csv(pgCarDataMonth, "pgCarDataMonth.csv", row.names=FALSE)
+
+```
+
+average car thefts by month 2021
+
+```{r}
+
+pgCarData2021 <- pgCarData %>% filter(Date > '2020-12-31') 
+
+
+pgCarData2021 <- pgCarData2021 %>% filter(Date < '2022-01-01' ) 
+
+pgCarData2021 %>%
   group_by(month = lubridate::floor_date(Date, 'month')) %>%
     summarise(freq=n())
+  
+
 ```
+
 
 
 Filter for Recovered Cars
